@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="title_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/title_color</item>
+    </style>
+
+    <style name="subtitle_style" parent="title_style">
+        <item name="android:textSize">@dimen/subtitle</item>
+        <item name="android:textColor">@color/subtitle_color</item>
+    </style>
+
 </resources>

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import in.sample.saltlistpower.data.DatabaseHandler;
 import in.sample.saltlistpower.model.ItemModel;
 
 public class DetailActivity extends AppCompatActivity {
@@ -22,9 +21,8 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        DatabaseHandler databaseHandler = new DatabaseHandler(getApplicationContext());
 
-        ItemModel itemModel = databaseHandler.getItemModel(getIntent().getIntExtra(MainActivity.ID, 0));
+        ItemModel itemModel = getIntent().getParcelableExtra(MainActivity.ITEM);
 
         if (itemModel == null) {
             finish();

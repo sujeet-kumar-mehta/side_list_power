@@ -72,7 +72,7 @@ public class ItemModelAdapter extends RecyclerView.Adapter<ItemModelAdapter.Item
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DetailActivity.class);
-                    intent.putExtra(MainActivity.ID, model.getID());
+                    intent.putExtra(MainActivity.ITEM, model);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);

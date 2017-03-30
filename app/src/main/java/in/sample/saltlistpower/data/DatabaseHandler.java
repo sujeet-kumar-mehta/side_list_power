@@ -81,6 +81,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ItemModel itemModel = new ItemModel(cursor.getString(3),
                 cursor.getString(2), cursor.getString(1));
+        itemModel.setID(Integer.parseInt(cursor.getString(0)));
         return itemModel;
     }
 

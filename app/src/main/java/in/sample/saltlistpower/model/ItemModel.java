@@ -1,12 +1,15 @@
 package in.sample.saltlistpower.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class ItemModel {
+public class ItemModel implements Parcelable{
 
     /**
      * sample response
-     * <p>
+     *
      * {"image": "http://dummyimage.com/715x350/105B19/907ECC",
      * "description": "sterilizer span ticks continuity hubs procurement vision eggs backups cries gap iron conferences torpedo government catchers restaurant destroyers attribute counsel echo overcurrent classes trip environments forecastle giants conspiracies suppression things rope plans bow blots rescuers incline",
      * "title": "terminations map autos sons utilizations"}
@@ -33,7 +36,6 @@ public class ItemModel {
 
     /**
      * THis is a model class to represent in the list
-     *
      * @param image
      * @param description
      * @param title
@@ -47,6 +49,23 @@ public class ItemModel {
     public ItemModel() {
     }
 
+    protected ItemModel(Parcel in) {
+        image = in.readString();
+        description = in.readString();
+        title = in.readString();
+    }
+
+    public static final Creator<ItemModel> CREATOR = new Creator<ItemModel>() {
+        @Override
+        public ItemModel createFromParcel(Parcel in) {
+            return new ItemModel(in);
+        }
+
+        @Override
+        public ItemModel[] newArray(int size) {
+            return new ItemModel[size];
+        }
+    };
 
     public String getImage() {
         return image;
@@ -72,5 +91,15 @@ public class ItemModel {
         this.title = title;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(image);
+        parcel.writeString(description);
+        parcel.writeString(title);
+    }
 }
